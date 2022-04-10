@@ -20,7 +20,7 @@ export const putDb = async (content) => {
   const store = tx.objectStore("jate");
   const request = store.put({ content });
   const result = await request;
-  console.log("Data updated in the db", result);
+  console.log("WOOOO Data updated in the db", result);
 };
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
@@ -42,7 +42,14 @@ export const getDb = async () => {
 
   const result = await request;
   console.log("result.value", result);
-  return result;
+
+  const returnData = "";
+  const content = function () {
+    result.forEach((user) => {
+      returnData += user;
+    });
+  };
+  return returnData;
 };
 
 initdb();
