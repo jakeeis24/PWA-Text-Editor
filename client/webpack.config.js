@@ -21,7 +21,7 @@ module.exports = () => {
       // Webpack plugin that generates our html file and injects our bundles.
       new HtmlWebpackPlugin({
         template: "./index.html",
-        title: "JATE - Just Another Text Editor",
+        title: "JATE",
       }),
 
       // Injects our custom service worker
@@ -30,8 +30,6 @@ module.exports = () => {
         swDest: "src-sw.js",
       }),
       new WebpackPwaManifest({
-        fingerprints: false,
-        inject: true,
         name: "JATE - Just Another Text Editor",
         short_name: "JATE",
         description: "Installable PWA Text Editor",
