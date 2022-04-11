@@ -18,9 +18,9 @@ export const putDb = async (content) => {
   const jateDb = await openDB("jate", 1);
   const tx = jateDb.transaction("jate", "readwrite");
   const store = tx.objectStore("jate");
-  const request = store.add({ text: content });
+  const request = store.put({ content });
   const result = await request;
-  console.log("WOOOO Data updated in the db", result);
+  console.log("WOOOO Data updated in the db", content);
   return result;
 };
 // TODO: Add logic for a method that gets all the content from the database
@@ -44,14 +44,14 @@ export const getDb = async () => {
   const result = await request;
   console.log("result.value", result);
 
-  // const returnData = "";
-  // const content = function () {
-  //   result.forEach((user) => {
-  //     returnData += user;
-  //   });
-  // };
-  // return returnData;
-  return result;
+  const returnData = "";
+  const content = function () {
+    result.forEach((user) => {
+      returnData += user;
+    });
+  };
+  return returnData;
+  // return result;
 };
 
 initdb();
